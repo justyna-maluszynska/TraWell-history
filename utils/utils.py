@@ -1,30 +1,5 @@
 import datetime
 
-from recurrent_rides.models import RecurrentRide
-from rides.models import Ride, Participation
-from users.models import User
-
-MAX_DISTANCE = 10
-
-
-def validate_hours_minutes(hours: int, minutes: int):
-    return 0 <= hours and 0 <= minutes < 60
-
-
-def convert_duration(duration: dict) -> datetime.timedelta:
-    return datetime.timedelta(hours=duration['hours'], minutes=duration['minutes'])
-
-
-def get_duration(data: dict) -> datetime.timedelta or None:
-    duration = None
-    try:
-        duration_data = data.pop('duration')
-        if validate_duration(duration_data):
-            duration = convert_duration(duration_data)
-        return duration
-    except KeyError:
-        return duration
-
 
 def get_city_info(parameters: dict, which_city: str) -> dict:
     """
@@ -37,16 +12,6 @@ def get_city_info(parameters: dict, which_city: str) -> dict:
     return {"name": parameters[f'city_{which_city}'], "state": parameters[f'city_{which_city}_state'],
             "county": parameters[f'city_{which_city}_county'], "lat": parameters[f'city_{which_city}_lat'],
             "lng": parameters[f'city_{which_city}_lng']}
-
-
-def filter_input_data(data: dict, expected_keys: list) -> dict:
-    return {key: value for key, value in data.items() if key in expected_keys}
-
-
-def filter_by_decision(decision, queryset):
-    if decision in [choice[0] for choice in Participation.Decision.choices]:
-        return queryset.filter(decision=decision)
-    return queryset
 
 
 def filter_rides_by_cities(request, queryset):
@@ -65,10 +30,6 @@ def filter_rides_by_cities(request, queryset):
         pass
 
     return queryset
-
-
-def is_user_a_driver(user: User, ride: Ride or RecurrentRide) -> bool:
-    return user == ride.driver
 
 
 def daterange_filter(queryset, name: str, value: datetime):
