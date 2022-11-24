@@ -13,6 +13,8 @@ from utils.utils import filter_rides_by_cities
 from utils.CustomPagination import CustomPagination
 from utils.validate_token import validate_token
 
+from history_microservice import tasks
+
 
 class RideViewSet(viewsets.ModelViewSet):
     """
@@ -60,5 +62,5 @@ class RideViewSet(viewsets.ModelViewSet):
         :return: List of user's rides.
         """
         user = kwargs['user']
-
+        tasks.archive()
         return self._get_user_rides(request, user)

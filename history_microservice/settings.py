@@ -67,6 +67,9 @@ CORS_ALLOW_HEADERS = ['*']
 
 ROOT_URLCONF = 'history_microservice.urls'
 
+CELERY_BROKER_URL = 'amqp://root:root@rabbitmq:5672/'
+CELERY_TIMEZONE = 'Europe/Warsaw'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

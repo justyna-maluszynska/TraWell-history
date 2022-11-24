@@ -13,6 +13,7 @@ def validate_token(func):
     def inner(self, request, *args, **kwargs):
         try:
             token = request.headers['Authorization'].split(' ')[1]
+
         except (KeyError, IndexError):
             return JsonResponse(data='Invalid token provided', status=status.HTTP_401_UNAUTHORIZED, safe=False)
 

@@ -1,0 +1,173 @@
+{
+  "title": "rides.archive",
+  "message": [
+    {
+      "ride_id": 2,
+      "area_from": "",
+      "area_to": "",
+      "start_date": "2022-11-22T14:15:00Z",
+      "duration": "02:05:00",
+      "price": "12.00",
+      "seats": 3,
+      "recurrent": true,
+      "automatic_confirm": false,
+      "description": "",
+      "available_seats": 3,
+      "is_cancelled": false,
+      "was_archived": false,
+      "city_from": {
+        "city_id": 1,
+        "name": "Wadowice",
+        "county": "gmina Wadowice",
+        "state": "Lesser Poland Voivodeship",
+        "lat": "49.8839610",
+        "lng": "19.4997290"
+      },
+      "city_to": {
+        "city_id": 2,
+        "name": "Wrocław",
+        "county": "Wrocław",
+        "state": "Lower Silesian Voivodeship",
+        "lat": "51.1263080",
+        "lng": "16.9782010"
+      },
+      "driver": {
+        "user_id": 1,
+        "email": "fmajrox@gmail.com",
+        "first_name": "Halina",
+        "last_name": "Kaczmarek",
+        "avg_rate": "0.00",
+        "private": false,
+        "avatar": ""
+      },
+      "vehicle": null,
+      "recurrent_ride": {
+        "ride_id": 1,
+        "area_from": "",
+        "area_to": "",
+        "start_date": "2022-11-19T14:15:00Z",
+        "end_date": "2022-12-03T22:59:00Z",
+        "frequency_type": "daily",
+        "frequence": 3,
+        "occurrences": [],
+        "duration": "02:05:00",
+        "price": "12.00",
+        "seats": 3,
+        "automatic_confirm": false,
+        "description": "",
+        "is_cancelled": false,
+        "city_from": {
+          "city_id": 1,
+          "name": "Wadowice",
+          "county": "gmina Wadowice",
+          "state": "Lesser Poland Voivodeship",
+          "lat": "49.8839610",
+          "lng": "19.4997290"
+        },
+        "city_to": {
+          "city_id": 2,
+          "name": "Wrocław",
+          "county": "Wrocław",
+          "state": "Lower Silesian Voivodeship",
+          "lat": "51.1263080",
+          "lng": "16.9782010"
+        },
+        "driver": {
+          "user_id": 1,
+          "email": "fmajrox@gmail.com",
+          "first_name": "Halina",
+          "last_name": "Kaczmarek",
+          "avg_rate": "0.00",
+          "private": false,
+          "avatar": ""
+        },
+        "vehicle": null
+      },
+      "passengers": []
+    },
+    {
+      "ride_id": 3,
+      "area_from": "",
+      "area_to": "",
+      "start_date": "2022-11-25T14:15:00Z",
+      "duration": "02:05:00",
+      "price": "12.00",
+      "seats": 3,
+      "recurrent": true,
+      "automatic_confirm": false,
+      "description": "",
+      "available_seats": 3,
+      "is_cancelled": false,
+      "was_archived": false,
+      "city_from": {
+        "city_id": 1,
+        "name": "Wadowice",
+        "county": "gmina Wadowice",
+        "state": "Lesser Poland Voivodeship",
+        "lat": "49.8839610",
+        "lng": "19.4997290"
+      },
+      "city_to": {
+        "city_id": 2,
+        "name": "Wrocław",
+        "county": "Wrocław",
+        "state": "Lower Silesian Voivodeship",
+        "lat": "51.1263080",
+        "lng": "16.9782010"
+      },
+      "driver": {
+        "user_id": 1,
+        "email": "fmajrox@gmail.com",
+        "first_name": "Halina",
+        "last_name": "Kaczmarek",
+        "avg_rate": "0.00",
+        "private": false,
+        "avatar": ""
+      },
+      "vehicle": null,
+      "recurrent_ride": {
+        "ride_id": 1,
+        "area_from": "",
+        "area_to": "",
+        "start_date": "2022-11-19T14:15:00Z",
+        "end_date": "2022-12-03T22:59:00Z",
+        "frequency_type": "daily",
+        "frequence": 3,
+        "occurrences": [],
+        "duration": "02:05:00",
+        "price": "12.00",
+        "seats": 3,
+        "automatic_confirm": false,
+        "description": "",
+        "is_cancelled": false,
+        "city_from": {
+          "city_id": 1,
+          "name": "Wadowice",
+          "county": "gmina Wadowice",
+          "state": "Lesser Poland Voivodeship",
+          "lat": "49.8839610",
+          "lng": "19.4997290"
+        },
+        "city_to": {
+          "city_id": 2,
+          "name": "Wrocław",
+          "county": "Wrocław",
+          "state": "Lower Silesian Voivodeship",
+          "lat": "51.1263080",
+          "lng": "16.9782010"
+        },
+        "driver": {
+          "user_id": 1,
+          "email": "fmajrox@gmail.com",
+          "first_name": "Halina",
+          "last_name": "Kaczmarek",
+          "avg_rate": "0.00",
+          "private": false,
+          "avatar": ""
+        },
+        "vehicle": null
+      },
+      "passengers": []
+    }
+  ]
+}
