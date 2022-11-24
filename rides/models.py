@@ -29,6 +29,7 @@ class Ride(models.Model):
     recurrent_ride = models.ForeignKey('recurrent_rides.RecurrentRide', related_name='single_rides',
                                        on_delete=models.CASCADE,
                                        blank=True, null=True, default=None)
+    was_archived = models.BooleanField(default=True, blank=True)
 
     @property
     def get_available_seats(self) -> int:

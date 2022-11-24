@@ -13,6 +13,8 @@ from utils.utils import filter_rides_by_cities
 from utils.CustomPagination import CustomPagination
 from utils.validate_token import validate_token
 
+from history_microservice import tasks
+
 
 class RideViewSet(viewsets.ModelViewSet):
     """
