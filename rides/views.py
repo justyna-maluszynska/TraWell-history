@@ -62,5 +62,5 @@ class RideViewSet(viewsets.ModelViewSet):
         :return: List of user's rides.
         """
         user = kwargs['user']
-        tasks.archive()
+
         return self._get_user_rides(request, user)
