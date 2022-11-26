@@ -24,11 +24,6 @@ def archive_rides(rides):
         if vehicle:
             vehicle_obj = get_or_create_vehicle(vehicle)
 
-        # coordinates = ride.pop('coordinates')
-        # coordinates_obj = []
-        # for coordinate in coordinates:
-        #     coordinates_obj.append(Coordinate(**coordinate).save())
-
         duration = get_duration(ride.pop('duration'))
 
         passengers = ride.pop('passengers')
@@ -67,7 +62,9 @@ def get_or_create_user(user):
 
 def get_or_create_vehicle(vehicle):
     vehicle_id = vehicle['vehicle_id']
-    vehicle_obj, created = Vehicle.objects.update_or_create(vehicle_id=vehicle_id, defaults=vehicle)
+
+    driver = get_or_create_user(vehicle_id['driver'])
+    vehicle_obj, created = Vehicle.objects.update_or_create(vehicle_id=vehicle_id, driver=driver, defaults=vehicle)
     return vehicle_obj
 
 
