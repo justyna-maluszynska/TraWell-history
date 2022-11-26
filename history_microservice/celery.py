@@ -54,7 +54,6 @@ class MyConsumerStep(bootsteps.ConsumerStep):
         print('Received message: {0!r}'.format(body))
         print(message)
         if body['title'] in ['rides.archive', 'rides.sync']:
-            print(body['message'])
             rides = body['message']
             archive_rides(rides)
 
