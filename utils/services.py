@@ -34,7 +34,7 @@ def archive_rides(rides):
         if recurrent_ride:
             recurrent_ride.update(
                 {'driver': driver_obj, 'city_from': city_from_obj, 'city_to': city_to_obj, 'duration': duration,
-                 'vehicle_obj': vehicle_obj})
+                 'vehicle': vehicle_obj})
 
             recurrent_ride_obj, created = RecurrentRide.objects.update_or_create(ride_id=recurrent_ride['ride_id'],
                                                                                  defaults=recurrent_ride)
