@@ -63,8 +63,8 @@ def get_or_create_user(user):
 def get_or_create_vehicle(vehicle):
     vehicle_id = vehicle['vehicle_id']
 
-    driver = get_or_create_user(vehicle_id['driver'])
-    vehicle_obj, created = Vehicle.objects.update_or_create(vehicle_id=vehicle_id, driver=driver, defaults=vehicle)
+    driver = get_or_create_user(vehicle['user'])
+    vehicle_obj, created = Vehicle.objects.update_or_create(vehicle_id=vehicle_id, user=driver, defaults=vehicle)
     return vehicle_obj
 
 
