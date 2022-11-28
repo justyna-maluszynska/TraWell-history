@@ -12,17 +12,16 @@ def archive_rides(rides):
         city_from = ride.pop('city_from')
         city_to = ride.pop('city_to')
         driver = ride.pop('driver')
-        vehicle = None
         try:
             vehicle = ride.pop('vehicle')
+            if vehicle:
+                vehicle_obj = get_or_create_vehicle(vehicle)
+                ride.update({'vehicle': vehicle_obj})
         except KeyError:
             pass
         city_from_obj = get_or_create_city(city_from)
         city_to_obj = get_or_create_city(city_to)
         driver_obj = get_or_create_user(driver)
-        vehicle_obj = None
-        if vehicle:
-            vehicle_obj = get_or_create_vehicle(vehicle)
 
         duration = get_duration(ride.pop('duration'))
 
@@ -39,8 +38,7 @@ def archive_rides(rides):
             recurrent_ride_obj = None
         ride.update({'driver': driver_obj, 'city_from': city_from_obj, 'city_to': city_to_obj, 'duration': duration,
                      'recurrent_ride': recurrent_ride_obj})
-        if vehicle_obj:
-            ride.update({'vehicle': vehicle_obj})
+
         ride_obj, created = Ride.objects.update_or_create(ride_id=ride['ride_id'], defaults=ride)
 
         for passenger in passengers:
@@ -63,7 +61,8 @@ def get_or_create_user(user):
 def get_or_create_vehicle(vehicle):
     vehicle_id = vehicle['vehicle_id']
 
-    driver = get_or_create_user(vehicle['user'])
+    driver_id = vehicle.pop('user')
+    driver = get_or_create_user(driver_id)
     vehicle_obj, created = Vehicle.objects.update_or_create(vehicle_id=vehicle_id, user=driver, defaults=vehicle)
     return vehicle_obj
 
