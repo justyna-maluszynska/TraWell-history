@@ -12,6 +12,8 @@ def archive_rides(rides):
         city_from = ride.pop('city_from')
         city_to = ride.pop('city_to')
         driver = ride.pop('driver')
+
+        vehicle_obj = None
         try:
             vehicle = ride.pop('vehicle')
             if vehicle:
@@ -19,6 +21,7 @@ def archive_rides(rides):
                 ride.update({'vehicle': vehicle_obj})
         except KeyError:
             pass
+
         city_from_obj = get_or_create_city(city_from)
         city_to_obj = get_or_create_city(city_to)
         driver_obj = get_or_create_user(driver)
@@ -30,7 +33,8 @@ def archive_rides(rides):
         recurrent_ride = ride.pop('recurrent_ride')
         if recurrent_ride:
             recurrent_ride.update(
-                {'driver': driver_obj, 'city_from': city_from_obj, 'city_to': city_to_obj, 'duration': duration})
+                {'driver': driver_obj, 'city_from': city_from_obj, 'city_to': city_to_obj, 'duration': duration,
+                 'vehicle_obj': vehicle_obj})
 
             recurrent_ride_obj, created = RecurrentRide.objects.update_or_create(ride_id=recurrent_ride['ride_id'],
                                                                                  defaults=recurrent_ride)
