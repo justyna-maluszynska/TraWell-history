@@ -10,6 +10,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'history_microservice.settings')
 django.setup()
 
 from utils.services import archive_rides
+from utils.celery_utils import create_user
 
 app = Celery('history_microservice')
 
@@ -56,6 +57,9 @@ class MyConsumerStep(bootsteps.ConsumerStep):
         if body['title'] in ['rides.archive', 'rides.sync']:
             rides = body['message']
             archive_rides(rides)
+
+        if body['title'] == 'users':
+            create_user(body['message'])
 
         message.ack()
 
